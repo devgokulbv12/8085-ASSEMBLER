@@ -35,9 +35,9 @@ struct one_byte
     int hex_code_2[100]={0x3e,0x06,0x0e,0x16,0x1e,0x26,0x2e,0x36,0x01,0x11,0x21,0x31};
 
     char op_code_adi[100][10]={"ADI ","ACI ","SUI ","SBI ","ANI ","XRI ","ORI ","CPI ","JMP ","JNZ ","JNC ","JPO ","JPE ",
-                               "CNZ ","CNC ","CPO ","CPE ","CALL","OUT "};
+                               "CNZ ","CNC ","CPO ","CPE ","CALL","OUT ","STA ","LDA "};
     int hex_code_adi[100]={0xc6,0xce,0xd6,0xde,0xe6,0xee,0xf6,0xfe,0xc3,0xc2,0xd2,0xe2,0xea,
-                           0xc4,0xd4,0xe4,0xec,0xcd,0xd3};
+                           0xc4,0xd4,0xe4,0xec,0xcd,0xd3,0x32,0x3a};
     
     char op_code_flag[100][10]={"JZ ","JC ","JP ","JM ","CZ ","CC ","CP ","CM ","IN "};
     int hex_code_flag[100]={0xca,0xda,0xf2,0xfa,0xcc,0xdc,0xf4,0xfc,0xdb};
@@ -102,7 +102,10 @@ void get_string(struct one_byte object)
         
     }
     file.close();
+    
+   
 }
+
 void get_instruction()
 {
     cout<<"enter op code:";
@@ -274,7 +277,6 @@ int main()
 {
     struct one_byte object;
     get_string(object);
-    
     for(int j =0;j<num;j++)
     {
         user_code = code[j];
